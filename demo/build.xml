@@ -1,0 +1,14 @@
+<project name="demo" default="run" basedir=".">
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <target name="compile">
+    <mkdir dir="${build}"/>
+    <javac srcdir="${src}" destdir="${build}" includeantruntime="false"/>
+  </target>
+  <target name="run" depends="compile">
+    <java classname="com.example.CsdGraphics" classpath="${build}" fork="true"/>
+  </target>
+  <target name="clean">
+    <delete dir="${build}"/>
+  </target>
+</project>
